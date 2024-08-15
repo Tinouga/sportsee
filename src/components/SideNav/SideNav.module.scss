@@ -1,0 +1,15 @@
+.navbar {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  a {
+    svg {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}
+
