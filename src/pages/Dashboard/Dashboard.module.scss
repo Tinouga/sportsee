@@ -1,4 +1,8 @@
 .dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 4.81rem;
+
   header {
     display: flex;
     flex-direction: column;
@@ -20,4 +24,19 @@
 
 .username {
   color: #FF0101;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem 1.88rem;
+
+  .userActivity {
+    grid-column-start: span 3;
+  }
+
+  .keyData {
+    grid-column: 4 / span 1;
+    grid-row: 1 / 3;
+  }
 }

@@ -1,4 +1,11 @@
 .userActivity {
+  border-radius: 0.3125rem;
+  background: #FBFBFB;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+.barChart {
   position: relative;
 
   h2 {

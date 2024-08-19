@@ -8,8 +8,6 @@ import {
     XAxis,
     YAxis
 } from "recharts";
-import {useEffect, useState} from "react";
-import {fetchUserActivity} from "../../services/apiService";
 
 const CustomTooltip = ({payload, label, active}) => {
     if (active) {
@@ -50,48 +48,26 @@ const renderLegend = ({payload}) => {
     );
 };
 
-const UserActivity = ({userId}) => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const getActivityData = async () => {
-            setLoading(true);
-            setError(null);
-            try {
-                const {sessions: activityData} = await fetchUserActivity(userId);
-                setData(activityData);
-            } catch (error) {
-                setError(error);
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        getActivityData();
-    }, [userId]);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>
+const UserActivity = ({activity}) => {
 
     // We add -1 kg to the minimum, and round the value up to the nearest integer for the maximum
-    const [dataMinKg, dataMaxKg] = data.reduce((acc, {kilogram}) => {
+    const [dataMinKg, dataMaxKg] = activity.reduce((acc, {kilogram}) => {
         acc[0] = Math.min(acc[0], kilogram - 1);
         acc[1] = Math.ceil(Math.max(acc[1], kilogram));
         return acc;
     }, [Infinity, -Infinity]);
 
     // We add +20 to the maximum
-    const dataMaxKcal = data.reduce((acc, {calories}) => {
+    const dataMaxKcal = activity.reduce((acc, {calories}) => {
         acc = Math.max(acc, calories);
         return acc;
     }, [0]) + 20;
 
     return (
-        <ResponsiveContainer width="100%" height={220} className={styles.userActivity}>
+        <article className={styles.userActivity}>
+        <ResponsiveContainer width="100%" height={220} className={styles.barChart}>
             <h2>Activité quotidienne</h2>
-            <BarChart data={data} barSize={7} barGap={8}>
+            <BarChart data={activity} barSize={7} barGap={8}>
                 <XAxis tickLine={false} tickMargin={16} tick={<CustomAxisTick/>} axisLine={{stroke: '#DEDEDE'}}/>
                 <YAxis hide="true" yAxisId="left" orientation="left" type="number" domain={[0, dataMaxKcal]}/>
                 <YAxis yAxisId="right" orientation="right" type="number" domain={[dataMinKg, dataMaxKg]} tickCount={3}
@@ -104,6 +80,7 @@ const UserActivity = ({userId}) => {
                 <Bar yAxisId="left" dataKey={'calories'} fill={'#E60000'} radius={[3.5, 3.5, 0, 0]}/>
             </BarChart>
         </ResponsiveContainer>
+        </article>
     );
 }
 

@@ -1,0 +1,41 @@
+.userKeyData {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.44rem;
+}
+
+.dataContainer {
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 0.3125rem;
+  background: #FBFBFB;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+}
+
+.icon {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.value {
+  color: #282D30;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+.label {
+  color: #74798C;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
