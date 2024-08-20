@@ -1,0 +1,36 @@
+.userAverageSessions {
+  border-radius: 0.3125rem;
+  background: #F00;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  height: 100%;
+  width: 100%;
+  padding: 1.81rem 0.875rem 1rem 0.875rem;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    width: 9.1875rem;
+    margin-left: 1rem;
+  }
+}
+
+.lineChart {
+  flex: 1;
+}
+
+.customTooltip {
+  background: #FFFFFF;
+  padding: 0.06rem 0.44rem;
+
+  p {
+    color: #000;
+    font-size: 0.5rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+  }
+}
+

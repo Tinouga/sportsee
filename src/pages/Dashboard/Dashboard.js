@@ -8,6 +8,8 @@ import {
     fetchUserPerformance
 } from "../../services/apiService";
 import UserKeyData from "../../components/UserKeyData";
+import UserAverageSessions from "../../components/UserAverageSessions";
+import UserPerformance from "../../components/UserPerformance";
 
 const Dashboard = () => {
     const userId = 12;
@@ -62,7 +64,9 @@ const Dashboard = () => {
                 <div className={styles.keyData}>
                     <UserKeyData data={data.keyData} />
                 </div>
-                <div><p>Hello</p></div>
+                <div className={styles.additionalInfos}><UserAverageSessions sessions={averageSessions} /></div>
+                <div className={styles.additionalInfos}><UserPerformance performance={performance} /></div>
+                <div className={styles.additionalInfos}><UserAverageSessions sessions={averageSessions} /></div>
                 <div></div>
                 <div></div>
             </section>
