@@ -1,0 +1,19 @@
+.userAverageScore {
+  border-radius: 0.3125rem;
+  background: #FBFBFB;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  position: relative;
+
+  h2 {
+    color: #20253A;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.88rem;
+  }
+}

@@ -10,6 +10,7 @@ import {
 import UserKeyData from "../../components/UserKeyData";
 import UserAverageSessions from "../../components/UserAverageSessions";
 import UserPerformance from "../../components/UserPerformance";
+import UserAverageScore from "../../components/UserAverageScore";
 
 const Dashboard = () => {
     const userId = 12;
@@ -66,7 +67,7 @@ const Dashboard = () => {
                 </div>
                 <div className={styles.additionalInfos}><UserAverageSessions sessions={averageSessions} /></div>
                 <div className={styles.additionalInfos}><UserPerformance performance={performance} /></div>
-                <div className={styles.additionalInfos}><UserAverageSessions sessions={averageSessions} /></div>
+                <div className={styles.additionalInfos}><UserAverageScore score={data.todayScore}/></div>
                 <div></div>
                 <div></div>
             </section>
