@@ -4,70 +4,21 @@ import {PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer} from "re
 const UserAverageScore = ({score}) => {
     const percentage = (score * 100).toFixed(0);
 
-    const data = [
-        // {value: 1.0, fill: '#FFF', name: 'maxValue'},
-        {value:0.5, fill: '#FF0000', name: 'currentScore'}
-    ];
-
-    // const data = [
-    //     { name: 'L1', value: 25 }
-    // ];
-    //
-    // const circleSize = 30;
-
     return (
         <article className={styles.userAverageScore}>
             <h2>Score</h2>
             <ResponsiveContainer width={"100%"} height={"100%"} className={styles.radialChart}>
-
-
-                {/*<RadialBarChart*/}
-                {/*    width={circleSize}*/}
-                {/*    height={circleSize}*/}
-                {/*    cx={circleSize / 2}*/}
-                {/*    cy={circleSize / 2}*/}
-                {/*    innerRadius={12}*/}
-                {/*    outerRadius={18}*/}
-                {/*    barSize={2}*/}
-                {/*    data={data}*/}
-                {/*    startAngle={90}*/}
-                {/*    endAngle={-270}*/}
-                {/*>*/}
-                {/*    <PolarAngleAxis*/}
-                {/*        type="number"*/}
-                {/*        domain={[0, 100]}*/}
-                {/*        angleAxisId={0}*/}
-                {/*        tick={false}*/}
-                {/*    />*/}
-                {/*    <RadialBar*/}
-                {/*        background*/}
-                {/*        clockWise*/}
-                {/*        dataKey="value"*/}
-                {/*        cornerRadius={circleSize / 2}*/}
-                {/*        fill="#82ca9d"*/}
-                {/*    />*/}
-                {/*    <text*/}
-                {/*        x={circleSize / 2}*/}
-                {/*        y={circleSize / 2}*/}
-                {/*        textAnchor="middle"*/}
-                {/*        dominantBaseline="middle"*/}
-                {/*        className="progress-label"*/}
-                {/*    >*/}
-                {/*        25*/}
-                {/*    </text>*/}
-                {/*</RadialBarChart>*/}
                 <RadialBarChart
-                    innerRadius="25%"
+                    innerRadius="80%"
                     outerRadius="90%"
                     barSize={10}
-                    data={data}
+                    data={[{value: score}]}
                     startAngle={90}
                     endAngle={450}
                 >
                     <PolarAngleAxis
                         type="number"
                         domain={[0, 1.0]}
-                        angleAxisId={0}
                         tick={false}
                     />
                     <svg viewBox="0 0 100 100" overflow="visible">
