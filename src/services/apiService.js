@@ -15,7 +15,8 @@ export const fetchUserData = async(userId) => {
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
-            return await response.json();
+            const result = await response.json();
+            return result.data;
         } catch(error) {
             console.log(`There was a problem retrieving the user's data: ${error.message}`);
             throw error;
@@ -38,7 +39,8 @@ export const fetchUserActivity = async(userId) => {
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
-            return await response.json();
+            const result = await response.json();
+            return result.data;
         } catch(error) {
             console.log(`There was a problem retrieving the user's activity: ${error.message}`);
             throw error;
@@ -61,7 +63,8 @@ export const fetchUserAverageSessions = async(userId) => {
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
-            return await response.json();
+            const result = await response.json();
+            return result.data;
         } catch(error) {
             console.log(`There was a problem retrieving the user's average sessions: ${error.message}`);
             throw error;
@@ -84,7 +87,8 @@ export const fetchUserPerformance = async(userId) => {
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
-            return await response.json();
+            const result = await response.json();
+            return result.data;
         } catch(error) {
             console.log(`There was a problem retrieving the user's performance: ${error.message}`);
             throw error;

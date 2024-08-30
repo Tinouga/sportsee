@@ -11,9 +11,10 @@ import UserKeyData from "../../components/UserKeyData";
 import UserAverageSessions from "../../components/UserAverageSessions";
 import UserPerformance from "../../components/UserPerformance";
 import UserAverageScore from "../../components/UserAverageScore";
+import {useParams} from "react-router-dom";
 
 const Dashboard = () => {
-    const userId = 12;
+    const {userId} = useParams();
 
     const [data, setData] = useState({});
     const [activity, setActivity] = useState([]);
