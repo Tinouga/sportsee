@@ -1,7 +1,7 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: 4.81rem;
+  gap: 6vh;
 
   header {
     display: flex;
@@ -30,6 +30,11 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.75rem 1.88rem;
+  margin-bottom: -1.75rem;
+
+  @media (max-width: 1200px) {
+    gap: 1.75rem 0.88rem;
+  }
 
   .userActivity {
     grid-column-start: span 3;

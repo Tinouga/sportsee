@@ -53,6 +53,9 @@ const Dashboard = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>
 
+    // Handle both todayScore and score - since the api returns both
+    const userScore = data.todayScore || data.score;
+
     return (
         <div className={styles.dashboard}>
             <header>
@@ -68,7 +71,7 @@ const Dashboard = () => {
                 </div>
                 <div className={styles.additionalInfos}><UserAverageSessions sessions={averageSessions} /></div>
                 <div className={styles.additionalInfos}><UserPerformance performance={performance} /></div>
-                <div className={styles.additionalInfos}><UserAverageScore score={data.todayScore}/></div>
+                <div className={styles.additionalInfos}><UserAverageScore score={userScore}/></div>
                 <div></div>
                 <div></div>
             </section>

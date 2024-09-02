@@ -1,8 +1,9 @@
 import {mockUserMainData, mockUserActivity, mockUserAverageSessions, mockUserPerformance} from "./mockData";
 
-export const fetchUserData = async(userId) => {
-    const useMock = process.env.REACT_APP_USE_MOCK === 'true';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const useMock = process.env.REACT_APP_USE_MOCK === 'true';
 
+export const fetchUserData = async(userId) => {
     if(useMock) {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -11,7 +12,7 @@ export const fetchUserData = async(userId) => {
         });
     } else {
         try {
-            const response = await fetch(`http://localhost:3000/user/${userId}`);
+            const response = await fetch(`${API_BASE_URL}/user/${userId}`);
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
@@ -25,8 +26,6 @@ export const fetchUserData = async(userId) => {
 }
 
 export const fetchUserActivity = async(userId) => {
-    const useMock = process.env.REACT_APP_USE_MOCK === 'true';
-
     if(useMock) {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -35,7 +34,7 @@ export const fetchUserActivity = async(userId) => {
         });
     } else {
         try {
-            const response = await fetch(`http://localhost:3000/user/${userId}/activity`);
+            const response = await fetch(`${API_BASE_URL}/user/${userId}/activity`);
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
@@ -49,8 +48,6 @@ export const fetchUserActivity = async(userId) => {
 }
 
 export const fetchUserAverageSessions = async(userId) => {
-    const useMock = process.env.REACT_APP_USE_MOCK === 'true';
-
     if(useMock) {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -59,7 +56,7 @@ export const fetchUserAverageSessions = async(userId) => {
         });
     } else {
         try {
-            const response = await fetch(`http://localhost:3000/user/${userId}/average-sessions`);
+            const response = await fetch(`${API_BASE_URL}/user/${userId}/average-sessions`);
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }
@@ -73,8 +70,6 @@ export const fetchUserAverageSessions = async(userId) => {
 }
 
 export const fetchUserPerformance = async(userId) => {
-    const useMock = process.env.REACT_APP_USE_MOCK === 'true';
-
     if(useMock) {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -83,7 +78,7 @@ export const fetchUserPerformance = async(userId) => {
         });
     } else {
         try {
-            const response = await fetch(`http://localhost:3000/user/${userId}/performance`);
+            const response = await fetch(`${API_BASE_URL}/user/${userId}/performance`);
             if(!response.ok) {
                 throw new Error(`Response status: ${response.status}`);
             }

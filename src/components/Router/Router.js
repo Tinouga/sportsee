@@ -1,5 +1,5 @@
 import Root from "../../pages/Root";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import Dashboard from "../../pages/Dashboard";
 
 const router = createBrowserRouter([
@@ -10,7 +10,10 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                path: '/:userId',
+                element: <Navigate to={'/dashboard/12'} replace />
+            },
+            {
+                path: 'dashboard/:userId',
                 element: <Dashboard />
             }
         ]
