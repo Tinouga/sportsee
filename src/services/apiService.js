@@ -1,4 +1,4 @@
-import {mockUserMainData, mockUserActivity, mockUserAverageSessions, mockUserPerformance} from "./mockData";
+import {mockUserActivity, mockUserAverageSessions, mockUserMainData, mockUserPerformance} from "./mockData";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const useMock = process.env.REACT_APP_USE_MOCK === 'true';
@@ -7,7 +7,10 @@ export const fetchUserData = async(userId) => {
     if(useMock) {
         return new Promise((resolve) => {
             setTimeout(() => {
-                resolve(mockUserMainData);
+                resolve({
+                    ...mockUserMainData,
+                    userScore: mockUserMainData.todayScore || mockUserMainData.score
+                });
             }, 200);
         });
     } else {
@@ -17,7 +20,11 @@ export const fetchUserData = async(userId) => {
                 throw new Error(`Response status: ${response.status}`);
             }
             const result = await response.json();
-            return result.data;
+
+            return {
+                ...result.data,
+                userScore: result.data.todayScore || result.data.score
+            };
         } catch(error) {
             console.log(`There was a problem retrieving the user's data: ${error.message}`);
             throw error;
